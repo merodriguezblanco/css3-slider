@@ -28,7 +28,12 @@
 }
 
 .slider-control-label {
+  background-color: #CCC;
+  border-radius: 50%;
   cursor: pointer;
+  display: inline-block;
+  height: 12px;
+  width: 12px;
 }
 
 #slide-1:checked ~ .slider-inner {
@@ -48,17 +53,17 @@
 }
 
 #slide-1:checked ~ [for="slide-1"] {
-  background-color: #0F0;
+  background-color: #000;
 }
 
 #slide-2:checked ~ [for="slide-2"] {
-  background-color: #0F0;
+  background-color: #000;
 }
 
 #slide-3:checked ~ [for="slide-3"] {
-  background-color: #0F0;
+  background-color: #000;
 }
 
 #slide-4:checked ~ [for="slide-4"] {
-  background-color: #0F0;
+  background-color: #000;
 }

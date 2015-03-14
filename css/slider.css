@@ -3,6 +3,7 @@
   margin: 0;
   overflow: hidden;
   padding: 0;
+  position: relative;
   text-align: center;
 }
 
@@ -36,6 +37,92 @@
   width: 12px;
 }
 
+.slide-back,
+.slide-next {
+  background-color: #CCC;
+  border-radius: 100%;
+  border: 2px solid #000;
+  color: #CCC;
+  cursor: pointer;
+  display: none;
+  font-weight: bold;
+  height: 26px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  vertical-align: middle;
+  width: 26px;
+}
+
+.slide-back:hover,
+.slide-back:focus,
+.slide-next:hover,
+.slide-next:focus {
+  background-color: #FFF;
+}
+
+.slide-back {
+  left: 0;
+}
+
+.slide-next {
+  right: 0;
+}
+
+.slider-arrow::before,
+.slider-arrow::after {
+  border: 2px solid black;
+  border-radius: 9px;
+  content: '';
+  height: 0;
+  position: absolute;
+  width: 9px;
+}
+
+.slide-back::before {
+  left: 5px;
+  top: 8px;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.slide-back::after {
+  bottom: 8px;
+  left: 5px;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.slide-next::before {
+  right: 5px;
+  top: 8px;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.slide-next::after {
+  bottom: 8px;
+  right: 5px;
+
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
 #slide-1:checked ~ .slider-inner {
   margin-left: 0;
 }
@@ -52,18 +139,20 @@
   margin-left: -300%;
 }
 
-#slide-1:checked ~ [for="slide-1"] {
+#slide-1:checked ~ .slider-control-label[for="slide-1"],
+#slide-2:checked ~ .slider-control-label[for="slide-2"],
+#slide-3:checked ~ .slider-control-label[for="slide-3"],
+#slide-4:checked ~ .slider-control-label[for="slide-4"] {
   background-color: #000;
 }
 
-#slide-2:checked ~ [for="slide-2"] {
-  background-color: #000;
-}
-
-#slide-3:checked ~ [for="slide-3"] {
-  background-color: #000;
-}
-
-#slide-4:checked ~ [for="slide-4"] {
-  background-color: #000;
+#slide-1:checked ~ .slide-back[for="slide-4"],
+#slide-1:checked ~ .slide-next[for="slide-2"],
+#slide-2:checked ~ .slide-back[for="slide-1"],
+#slide-2:checked ~ .slide-next[for="slide-3"],
+#slide-3:checked ~ .slide-back[for="slide-2"],
+#slide-3:checked ~ .slide-next[for="slide-4"],
+#slide-4:checked ~ .slide-back[for="slide-3"],
+#slide-4:checked ~ .slide-next[for="slide-1"] {
+  display: block;
 }

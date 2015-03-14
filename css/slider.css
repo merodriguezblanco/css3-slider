@@ -30,11 +30,17 @@
 
 .slider-control-label {
   background-color: #CCC;
-  border-radius: 50%;
+  border: 2px solid #000;
+  border-radius: 100%;
   cursor: pointer;
   display: inline-block;
   height: 12px;
   width: 12px;
+}
+
+.slider-control-label:hover,
+.slider-control-label:focus {
+  background-color: #FFF;
 }
 
 .slide-back,
